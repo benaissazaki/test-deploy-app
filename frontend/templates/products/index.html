@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Index</title>
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/index.css" %}">
+{% endblock styles %}
+{% block app_links %}
+    <a class="hovered" href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+<div class="index-background">
+    <div class="jumbotron-container">
+        <div class="jumbotron">
+            <h1>Shop Name</h1>
+            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a class="jumbotron-button" href="{% url 'products:clothing' %}">Clothing</a>
+            <a class="jumbotron-button" href="">Garniture</a>
+        </div>
+    </div>    
+</div>
+<div class="tops-background"></div>
+<!--Shop by category-->
+{% endblock content %}

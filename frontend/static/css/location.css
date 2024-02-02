@@ -1,0 +1,55 @@
+#map {
+    width: 100%;
+    height: 650px; 
+}
+
+.location-grid {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 70%; 
+    color: #555;
+    background-color: #fff; 
+}
+
+.shop-details {
+    padding: 0px 20px;
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 50% 50%; /* Two columns of equal width */
+}
+  
+.detail h3, p {
+    margin: 0; /* Remove default margin */
+}
+
+.opening-times-grid {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%; 
+    background-color: #fff; 
+}
+
+.days {
+    font-weight: bold;
+}
+
+.closed {
+    color: #dc143c;
+}
+.shop-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0px 10px; 
+    gap: 15px;
+    width: 400px;
+    height: 100px;
+}
+
+.shop-photo {
+    width: 100%;
+    height: 100%;
+}

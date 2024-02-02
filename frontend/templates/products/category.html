@@ -1,0 +1,201 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Couvertures</title>
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/category.css" %}">
+    <link rel="stylesheet" href="{% static "css/filter_category.css" %}">
+{% endblock styles %}
+{% block image_url %}
+    <style>
+        .product-image-background {
+            background-image: url('/static/css/images/dresses.jpg'); 
+            /* background-image: url('{{ mid_category.image.url }}');  */
+            background-color: #cccccc;
+            height: 50vh;
+            width: 70%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%; 
+            padding: 5px;
+            margin: 20px auto;
+        }
+
+    </style>
+{% endblock image_url %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a class="hovered" id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+    <!-- {% for item in page %}
+        <img src="{{item.image.url}}" alt="Not Found" style="height: 100px; width: 100px;">
+        <br>
+        name: {{item.name}}
+        <br>
+        price: {{item.price}} DA
+        <br>
+        stock: {{item.stock}} 
+        <br>
+        {% if is_admin %}
+            <a href="{% url 'products:confirm-sale' item.pk %}">Sell</a>
+        {% endif %}
+        <hr>
+    {% endfor %} -->
+    <!-- <div style="background-color: #f0efef; margin: 0; padding: 1px;"> -->
+    <div class="page-path">
+        <h4>{{top_category}} > {{mid_category}}</h4>
+    </div>    
+    <div class="product-image-background"></div>
+    <div class="category-grid">
+        <div class="category-name">
+            <h1>{{mid_category}}</h1>
+        </div>
+        <div class="category-description">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti atque quidem enim laudantium, quibusdam obcaecati dicta nobis eius fugit necessitatibus praesentium. Dolor natus vel, eius vitae minus voluptates iure sed?</p>
+        </div>
+    </div>
+    <div id="filterbar" class="bar">
+        <div class="left-section">
+            <h3>{{results_no}} {{mid_category}}</h3>
+        </div>
+        <div class="middle-section">
+            {% if bottom_categories %}
+                {% for category in bottom_categories %}
+                    <a class="sub-category" href="#">{{category}}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="right-section">
+            <img src="/static/icons/filter.svg" alt="Filter Icon" width="20" height="20">
+            <a class="filter-link" style="display: block;">Sort & Filter</a>
+        </div>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <div class="close">&times;</div>
+            <h3>Color</h3>
+        </div>
+    </div>                                                                       
+    <div class="products-grid">
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>        
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true" alt="Photo 1">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fHww" alt="Photo 2">
+            <div class="product-details">
+                <p>Name 1</p>
+                <p>some other details</p>    
+            </div>
+        </div>
+    </div>
+    <button class="infinite-scroll centered-element" type="submit">View More</button>
+        
+{% endblock content %}

@@ -1,0 +1,297 @@
+.navbar {
+    height: 80px;
+    top: 0;
+    position: fixed; 
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; /* #dc143c #333 */
+    /* border-bottom: 1px solid #ccc; */
+    color: #555;
+    padding: 10px;
+    transition: top 0.3s;
+    z-index: 2000;
+    /* font-size: large; */
+}
+
+/* Style the left section (logo) */
+.left-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Style the middle section (main links) */
+.middle-section {
+    flex: 2;
+    text-align: center;
+}
+
+.nav-links a {
+    color: #555;
+    text-decoration: none;
+    padding: 10px 0;
+    margin-left: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent; /* Initially, set border-bottom to transparent */
+    transition: border-bottom-color 0.5s; /* Add a smooth transition effect for color change */
+}
+
+.nav-links a.hovered {
+    border-bottom-color: #555; 
+}
+
+.nav-links a:hover {
+    border-bottom-color: #555; /* dec88e Change the color of border-bottom on hover */
+}
+#dropdown-button.hovered {
+    border-bottom-color: #555;
+} 
+
+#dropdown-symbol {
+    font-size: 10px;
+}
+/***********************************************/
+/* Style the right section (search, fav, and cart links) */
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-field,
+.navbar .middle-section .search-field {
+    position: relative;
+    transition: all 0.5s ease;
+    transform-origin: right center;
+}
+
+.navbar input[type="text"] {
+    padding: 8px;
+    border-radius: 25px;
+    color: #555; 
+    border: 1px solid #fff; 
+    background-color: #f0efef; /* rgba(241, 222, 222, 0.5) */
+    transition: all 0.5s ease;
+}
+
+
+.navbar .middle-section input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 25px;
+    color: #555; 
+    border: 1px solid #fff; 
+    background-color: #f0efef; 
+    transition: all 0.5s ease;
+
+}
+
+.navbar input:focus,
+.navbar .middle-section input:focus {
+    border: 1px solid #dec88e; 
+    outline: none; 
+}
+
+.search-field input[type="text"]::placeholder {
+    color: #777; /* Placeholder text color */
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    color: #dec88e;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.navbar .middle-section .search-button {
+    position: absolute;
+    right: -18px; /* overlapping search button */
+    top: 0;
+    background-color: transparent;
+    color: #dec88e;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.search-field input[type="text"]:not(:focus) + .search-button:hover {
+    background-color: #ddd;
+    border: 1px solid #fff;
+    border-left: none;
+    border-top-left-radius: 0; 
+    border-bottom-left-radius: 0;
+}
+.search-button:hover,
+.navbar .middle-section .search-button:hover {
+    background-color: #ddd;
+    border: 1px solid #dec88e;
+    border-left: none;
+    border-top-left-radius: 0; 
+    border-bottom-left-radius: 0;
+}
+
+.help,
+.settings,
+.dashboard {
+    padding-left: 10px;
+    cursor: pointer;
+}
+.help-container,
+.settings-container,
+.dashboard-container {
+    position: relative;
+    display: inline;
+}
+
+.help-indicator,
+.settings-indicator, 
+.dashboard-indicator {
+    position: absolute;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    top: 15px;
+    right: 0px;
+    display: none;
+}
+
+/******************************************************SEARCH-AUTOCOMPLETE*************************************************************/
+#search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    background-color: #fff;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+}
+
+.result-found {
+    /* background-color: #dc143c; */
+    color: #333; /* rgb(2, 141, 247) */
+    padding: 0px; /* 8px */
+    cursor: pointer;
+}
+
+.result-not-found {
+    color: #dc143c;
+    padding: 8px;
+}
+/* Style the right section links */
+.right-section .nav-links a {
+    margin-left: 15px;
+}
+
+.image-container {
+    display: flex;
+}
+
+.image-item {
+    text-align: start;
+    color: #333;
+    margin: 10px;
+}
+
+.image-item:hover {
+    cursor: pointer;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+}
+
+.image-item p {
+    margin: 0;
+    padding: 5px;
+}
+/********************************************************************DOPDOWN BUTTON***************************************************/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown a {
+    display: inline; /* keep it or mess up layout */
+}
+
+.dropdown-content {
+    top: 100%;
+    text-align: left;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+    /* box-shadow: 0 8px 16px rgba(0,0,0,0.2); */
+    z-index: 1;
+}
+
+.dropdown-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    background-color: #fff;
+    top: 100%;
+    left: 0;
+    z-index: 2000;
+}
+
+/*****************************************************************DROPDOWN CONTENT****************************************************/
+.grid-container {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+}
+
+.grid-container p,
+.grid-container a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin: 0;
+}
+.grid-container p:hover,
+.grid-container a:hover {
+    color: #777;
+    cursor: pointer;
+}
+.left-content, .middle-content, .right-content {
+    margin-left: 13%;
+    flex-basis: 33%; /* Adjust as needed to leave space for margins */
+    border-right: 1px solid #ccc;
+}
+
+.right-content {
+    border-right: none;
+}
+
+.title {
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 10px;
+}

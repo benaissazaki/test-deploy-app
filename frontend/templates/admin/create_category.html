@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Couvertures</title>
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/admin_forms.css" %}">
+{% endblock styles %}
+{% block content %}
+<div class="page-path">
+    <h4><img class="admin" src="/static/icons/admin.svg" alt="Search Icon" width="15" height="15">Admin Dashboard > Create Categories > Mid Category</h4>
+</div>
+<div class="top-section">
+    <a class="next" href="{% url 'products:create-subcategory' %}">Bottom category <span class="right">&raquo;</span></a>
+    <a class="previous" href="{% url 'products:create-top-category' %}"><span class="left">&laquo;</span> Top category</a>
+</div>
+<form class="category-form" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <h1 class="centered-element">Mid Category</h1>
+    {{form.as_p}}
+    <input class="create-button" type="submit" value="Create Category">
+</form>
+{% endblock content %} 

@@ -1,0 +1,88 @@
+/* .product-image-background {
+    background-image: url('images/dresses.jpg'); 
+    background-color: #cccccc;
+    height: 50vh;
+    width: 70%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    padding: 5px;
+    margin: 20px auto;
+} */
+
+.category-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 30% 70%; 
+    padding: 0 10px;
+    padding-left: 0;
+    grid-gap: 10px;
+    background-color: #fff; 
+}
+
+.category-name {
+    margin: auto;
+    font-size: x-large;
+    margin-right: 0px;
+    color: #dec88e;
+}
+.category-description {
+    margin: auto 20%;
+    font-size: large;
+}
+
+.category-jumbotron {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 0 500px;
+    border-bottom: 1px solid #ccc;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns with equal width */
+    padding: 0px 20px; 
+    gap: 15px;
+}
+
+.product {
+    border: transparent; /* Border for grid items */
+    text-align: start; /* Center align content */
+    height: 400px;
+    cursor: pointer;
+}
+
+.product img {
+    width: 100%;
+    height: 80%;
+    border: 1px solid #ccc;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-1px, 0); }
+    40% { transform: translate(1px, 0); }
+    60% { transform: translate(-1px, 0); }
+    80% { transform: translate(1px, 0); }
+    100% { transform: translate(0, 0); }
+}
+  
+  /* Apply the shake animation on hover */
+.product img:hover {
+    /* animation: shake 0.7s ease-in-out; /* Adjust animation duration and timing function */
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.product-details {
+    color: #555;
+    padding: 0;
+    margin: 0;
+    text-align: start;
+}
+
+.product-details p {
+    margin: 0;
+}

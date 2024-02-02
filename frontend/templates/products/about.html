@@ -1,0 +1,17 @@
+{% extends "base/base.html" %} 
+{% block title %}
+    <title>About</title>
+{% endblock title %}
+{% block styles %}
+{% endblock styles %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a class="hovered" href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+{% endblock content %}

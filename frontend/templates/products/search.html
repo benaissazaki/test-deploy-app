@@ -1,0 +1,70 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Product search</title>
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/category.css" %}">
+{% endblock styles %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a class="hovered" id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+<div class="page-path">
+    <h4>Product Search > {{searched}}</h4>
+</div>
+{% if items %}
+    <br><br>
+    <div class="products-grid">
+        {% for item in items %}
+        <a class="link" href="{% url 'products:item' item.pk %}">
+            <div class="product" path="{% url 'products:item' item.pk %}">
+                <img src="{% if item.image.url %}{{ item.image.url }}{% endif %}" alt="Product Image">
+                <div class="product-details">
+                    <p><strong>{{item.name}}</strong> - {{item.mid_category}}</p>
+                    {% if item.stock %} 
+                        <p>In Stock</p> 
+                    {% else %}
+                        <p>Sold Out</p>
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    <span id="loading-area"><!--Loading content through infinite scroll--></span>
+{% endif %}
+{% if items.has_next %}
+    <button id="view-more" class="infinite-scroll centered-element" type="submit">View More</button>
+    <a id="items-paginator" href="?page={{ items.next_page_number }}" style="display: hidden;" current-page="{{ items.number }}" total-pages="{{ items.paginator.num_pages }}"></a>
+{% endif %}
+<script type="text/javascript" src="/static/js/infinite_scroll.js"></script>
+
+<script>
+
+
+    // Function to handle click events on .product elements
+// function handleProductClick(event) {
+//     const products = document.querySelectorAll('.product');
+//     if (products) {
+//         products.forEach(product => {
+//             const productViewPath = product.getAttribute('path');
+//             product.addEventListener('click', () => {
+//                 console.log(productViewPath)
+
+//                 window.location.href = productViewPath;
+//             });
+//         });
+//     }
+// }
+// // Attach event listener to a parent element that contains all .product elements
+// document.addEventListener('click', handleProductClick);
+</script>
+
+{% endblock content %}

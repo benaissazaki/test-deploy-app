@@ -1,0 +1,30 @@
+{% extends "base/base.html" %}
+{% block title %}
+    <title>Couvertures</title>
+{% endblock title %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a class="hovered" id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+<br>
+    {% for item in page %}
+        <img src="{{item.image.url}}" alt="Not Found" style="height: 100px; width: 100px;">
+        <br>
+        name: {{item.name}}
+        <br>
+        price: {{item.price}} DA
+        <br>
+        stock: {{item.stock}}
+        <br>
+        {% if is_admin %}
+            <a href="{% url 'products:confirm-sale' item.pk %}">Sell</a>
+        {% endif %}
+        <hr>
+    {% endfor %}
+{% endblock content %}

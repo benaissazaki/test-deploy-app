@@ -1,0 +1,179 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.close-button-container {
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 50px;
+    color: #dc143c;
+    z-index: 3100;
+}
+
+.close-button:hover {
+    cursor: pointer;
+    color: #f7bac6;
+}
+
+.newsletter-form {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 5%;
+    color: #555;
+    background-color: #fff;
+    max-width: 60%;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+}
+
+.name-field-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%; 
+    padding-right: 10px; /* padding right must be equal to the gap left */
+    grid-gap: 10px;
+    box-sizing: border-box;
+}
+
+.newsletter-field {
+    margin-bottom: 20px;
+    padding: 15px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #555; 
+    border: 2px solid transparent; 
+    background-color: #ededed;
+}
+
+.newsletter-field:focus {
+    border-bottom: 2px solid #333; 
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: none; 
+   /* background-color: rgba(71, 71, 71, 0.6); /* #f0f8ff */
+}
+
+.newsletter-field::placeholder {
+    color: #555; /* Placeholder text color */
+}
+
+#choice-field {
+    display: block;
+    margin: 15px 0px;
+    border-radius: 5px;
+    padding: 15px 15px;
+    border: 2px solid transparent; 
+    background-color: #ededed;
+}
+
+#choice-field:focus {
+    border-bottom: 2px solid #333; 
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 20px 50px; 
+    background-color: #333; 
+    color: #fff; 
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px; 
+    border: 1px solid #333; 
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #555;
+    border-color: #555;
+    cursor: pointer;
+}
+
+#customer-category {
+    color: #fff;
+}
+
+#success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: large;
+    width: 500px;
+    color: #555;
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    z-index: 4000; /* Ensure it's above other elements */
+    display: none; 
+}
+
+#success-message h1 {
+    color: #6bc66e;
+    font-size: 60px;
+}
+
+#continue-button {
+    width: 250px;
+    padding: 20px 20px;
+    margin: 40px auto;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 1px solid #6bc66e;
+    background-color: #6bc66e;
+    cursor: pointer;
+    display: block;
+}
+
+#continue-button:hover {
+    border: 1px solid #84d187;
+    background-color: #84d187;
+}
+
+.close-message {
+    position: relative;
+}
+
+.close-message-button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 50px;
+    color: #dc143c;
+    cursor: pointer;
+}
+
+.close-message-button:hover {
+    color: #f7bac6;
+}
+
+.newsletter-error {
+   color: rgb(211, 21, 21);
+   display: none;
+}
+
+.newsletter-field-error {
+    border-bottom: 2px solid rgb(211, 21, 21); 
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: none; 
+}

@@ -1,0 +1,110 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Item</title>
+{% endblock title %} 
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/item_view.css" %}">
+    <link rel="stylesheet" href="{% static "css/product_suggestions.css" %}">
+{% endblock styles %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a class="hovered" id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+<!--path must consist of anchor tags-->
+<div class="page-path">
+    <h4>{{item.top_category}} > {{item.mid_category}} {% if item.bottom_category %}> {{item.bottom_category}}{% endif %}> {{item.name}}</h4>
+</div>
+<div class="item-grid">
+    <div class="item-container">
+        <div class="small-photos">
+            <img class="small-photo" src="{% if item.image %}{{item.image.url}}{% endif %}" alt="Not Found">
+            {% if images %}
+                {% for image in images %}
+                    <img class="small-photo" src="{% if image.extra_image %}{{image.extra_image.url}}{% endif %}" alt="Small Photo 1">
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="main-photo-container">
+            <img class="main-photo" src="{% if item.image %}{{item.image.url}}{% endif %}" alt="Not Found">
+            <div class="carousel-indicators">
+                <span class="active-indicator"></span>
+                {% if images %}
+                    {% for image in images %}
+                        <span class="indicator"></span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <button id="prev-btn" class="carousel-btn" onclick="prevSlide()"><b>&#8249;</b></button>
+            <button id="next-btn" class="carousel-btn" onclick="nextSlide()"><b>&#8250;</b></button>
+        </div>
+    </div> 
+    <div class="item-details">
+        <h1>{{item.name}}</h1>
+        <p>{{item.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum laudantium unde voluptate explicabo doloribus dolore vero suscipit, tempora animi quia cumque deleniti mollitia accusamus facilis. Optio, iste! Necessitatibus, quae incidunt!         <a href="{% url 'products:location' %}">Visit our store</a>
+        </p>        
+        <!-- <p>{{item.price}} DA</p> -->
+        {% if item.available %}
+            <p style="color: green; font-weight: bold;">In Stock {% if item.stock < 3 %} - {{item.stock}} {% endif %}</p>
+        {% else %}
+            <p>Sold Out</p>
+        {% endif %}
+        <div class="centered-element">
+            <button class="details-button">Contact Us</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/item.js"></script>
+
+<div class="product-suggestions">
+    <h1>You Might Also Like</h1>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item-container">
+                <img src="https://media.istockphoto.com/id/843408508/photo/photography-camera-lens-concept.jpg?s=612x612&w=0&k=20&c=-tm5TKrPDMakrT1vcOE-4Rlyj-iBVdzKuX4viFkd7Vo=" alt="Image 1">
+                <div class="carousel-item-details">
+                    <p>Kaftan</p>
+                    <p>robe</p>
+                </div>
+            </div>
+            <div class="carousel-item-container">
+                <img src="https://st.depositphotos.com/2001755/3622/i/450/depositphotos_36220949-stock-photo-beautiful-landscape.jpg" alt="Image 2">
+                <div class="carousel-item-details">
+                    <p>Kaftan</p>
+                    <p>robe</p>
+                </div>
+            </div>
+            <div class="carousel-item-container">
+                <img src="https://media.istockphoto.com/id/843408508/photo/photography-camera-lens-concept.jpg?s=612x612&w=0&k=20&c=-tm5TKrPDMakrT1vcOE-4Rlyj-iBVdzKuX4viFkd7Vo=" alt="Image 1">
+                <div class="carousel-item-details">
+                    <p>Kaftan</p>
+                    <p>robe</p>
+                </div>
+            </div>
+            <div class="carousel-item-container">
+                <img src="https://st.depositphotos.com/2001755/3622/i/450/depositphotos_36220949-stock-photo-beautiful-landscape.jpg" alt="Image 2">
+                <div class="carousel-item-details">
+                    <p>Kaftan</p>
+                    <p>robe</p>
+                </div>
+            </div>
+            <div class="carousel-item-container">
+                <img src="https://media.istockphoto.com/id/843408508/photo/photography-camera-lens-concept.jpg?s=612x612&w=0&k=20&c=-tm5TKrPDMakrT1vcOE-4Rlyj-iBVdzKuX4viFkd7Vo=" alt="Image 1">
+                <div class="carousel-item-details">
+                    <p>Kaftan</p>
+                    <p>robe</p>
+                </div>
+            </div>
+        </div>
+        <button class="prev-button" onclick="changeSlide(-1)"><b>&#8249;</b></button>
+        <button class="next-button" onclick="changeSlide(1)"><b>&#8250;</b></button>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/product_suggestions.js"></script>
+{% endblock content %}

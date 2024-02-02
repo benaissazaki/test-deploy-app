@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Location</title>
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/location.css" %}">
+{% endblock styles %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a class="hovered" href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+<div class="page-path">
+    <h4>Shop Location</h4>
+</div>
+<div class="location-grid">
+    <div class="shop-details">
+        <h1>Shop Name</h1>
+        <div class="detail">
+            <h3>Address</h3>
+            <p>Cite - 408 lgmnts</p>
+        </div>
+        <div class="detail">
+            <h3>Post Code</h3>
+            <p>LN6 7BA</p>
+        </div>
+        <h1>Opening Times</h1>
+        <div class="opening-times-grid">
+            <div class="days">
+                <p>Sunday</p>
+                <p>Monday</p>
+                <p>Tuesday</p>
+                <p>Wednesday</p>
+                <p>Thursday</p>
+                <p>Friday</p>
+                <p>Saturday</p>    
+            </div>
+            <div class="times">
+                <p>9:00 - 16:00</p>
+                <p>9:00 - 16:00</p>
+                <p>9:00 - 16:00</p>
+                <p>9:00 - 16:00</p>
+                <p>9:00 - 16:00</p>
+                <p class="closed">Closed</p>
+                <p class="closed">Closed</p>    
+            </div>    
+        </div>
+        <h1>Shop Images</h1>
+        <div class="shop-photos-grid">
+            <img class="shop-photo" src="https://hips.hearstapps.com/hmg-prod/images/twenty-twenty-one-shop-1638976811.jpg" alt="">
+            <img class="shop-photo" src="https://www.theretailbulletin.com/wp-content/uploads/2023/08/Perfume-Shop-Basingstoke.png" alt="">
+            <img class="shop-photo" src="https://hips.hearstapps.com/hmg-prod/images/twenty-twenty-one-shop-1638976811.jpg" alt="">
+        </div>
+    </div>
+    <div id="map"></div>
+</div>
+<script type="text/javascript" src="/static/js/location.js"></script>
+{% endblock content %}

@@ -1,0 +1,102 @@
+.top-section {
+    padding: 20px 0;
+    position: relative;
+}
+
+.top-section a {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+.top-section a:hover {
+    color: rgb(56, 114, 223);
+}
+
+.next {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.previous {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.left,
+.right {
+    font-size: 20px;
+}
+
+.category-form,
+.upload-form {
+    width: 50%;
+    padding: 40px;
+    margin: 40px auto;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+}
+
+.admin-category,
+.admin-upload {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+#top-category-choice {
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+}
+
+.admin-category:focus,
+.admin-upload:focus,
+#top-category-choice:focus {
+    outline: none; 
+    border: 2px solid #777;
+}
+
+#product-image,
+#multiple-images {
+    background-color: #fff;
+    /* border: 2px solid #777; */
+}
+
+.create-button {
+    width: 100%;
+    padding: 20px;
+    margin: 10px auto;
+    color: #fff;
+    font-weight: bold;
+    background-color: #333;
+    cursor: pointer;
+    border: none;
+}
+
+.create-button:hover {
+    background-color: #777;
+}
+
+.double-field-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%; 
+    padding-right: 10px; 
+    grid-gap: 10px;
+    box-sizing: border-box;
+}
+
+.categories-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%; 
+    padding-right: 10px; 
+    grid-gap: 10px;
+    box-sizing: border-box;
+}

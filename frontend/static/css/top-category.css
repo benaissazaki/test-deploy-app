@@ -1,0 +1,31 @@
+.clothing-background {
+    background-image: url('images/clothing.jpg'); 
+    background-color: #cccccc;
+    height: 50vh;
+    width: 80%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    padding: 80px;
+    margin: 20px auto;
+}
+
+.clothing-jumbotron {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 0 200px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-gap: 10px; /* Gap between grid items */
+    padding: 40px;
+}
+
+.grid-item img {
+    border: 1px solid #ccc;
+    width: 500px; /* Ensure images don't exceed their container */
+    height: 500px; /* Maintain aspect ratio */
+}

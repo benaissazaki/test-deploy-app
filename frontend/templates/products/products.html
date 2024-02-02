@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% block title %}
+    <title>Products</title>
+{% endblock title %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a class="hovered" id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+    {% if page %}
+        {% for item in page %}
+            <img src="{% if item.image %}{{ item.image.url}}{% endif %}" alt="Not Found" width="100" height="100">
+        {% endfor %}
+    {% endif %}
+{% endblock content %}

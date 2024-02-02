@@ -1,0 +1,77 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Clothing</title>
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/top-category.css" %}">
+    <link rel="stylesheet" href="{% static "css/filter_category.css" %}">
+{% endblock styles %}
+{% block app_links %}
+    <a href="{% url 'products:index' %}">Home</a>
+    <div class="dropdown">
+        <a class="hovered" id="dropdown-button" href="#">Products <span id="dropdown-symbol">&#9660;</span></a>
+    </div>
+    <a href="" id="subscribe-link">Subscribe</a>
+    <a href="{% url 'products:location' %}">Location</a>
+    <a href="{% url 'products:about' %}">About</a>
+{% endblock app_links %}
+{% block content %}
+<div class="page-path">
+    <h4>Clothing</h4> 
+</div>
+<div class="clothing-background"></div>
+<div class="clothing-jumbotron">
+    <h1>Clothing</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur error reiciendis delectus aliquid, quas, amet aut perferendis sit commodi non odio architecto eligendi temporibus, accusamus beatae illo totam ratione neque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eum voluptatem voluptatibus vel? Aut saepe, assumenda accusamus ea dolor mollitia et, asperiores quibusdam magnam eaque eligendi quisquam debitis officiis sunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</div>
+<div id="filterbar" class="bar">
+    <div class="left-section">
+        <h3>111 results</h3>
+    </div>
+    <div class="middle-section">
+        {% for category in clothing %}
+            <a class="sub-category" href="{% url 'products:category-products' category.pk  %}">{{category}}</a>
+        {% endfor %}
+    </div>
+    <div class="right-section">
+        <img src="/static/icons/filter.svg" alt="Filter Icon" width="20" height="20">
+        <a class="filter-link" style="display: block;">Sort & Filter</a>
+    </div>
+</div>
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+        <div class="close">&times;</div>
+        <h3>Color</h3>
+    </div>
+</div>                                                                       
+<div class="image-grid">
+    <div class="grid-item">
+        <img src="https://media.4rgos.it/s/Argos/tuc140150182_R_SET?$Main768$&w=620&h=620" alt="Image 1">
+        <h3>Dresses</h3>
+    </div>
+    <div class="grid-item">
+        <img src="https://www.pjpan.co.uk/media/catalog/product/cache/ddc9bd1b85fcfa71e5e91929f8504b46/m/e/mens-blue-organic-tshirt_1.jpg" alt="Image 2">
+        <h3>Tops</h3>
+    </div>
+    <div class="grid-item">
+        <img src="https://images.asos-media.com/products/asos-design-oversized-t-shirt-with-racing-car-graphic-in-washed-cream/205436418-1-cream/?$n_480w$&wid=476&fit=constrain" alt="Image 3">
+        <h3>Trousers</h3>
+    </div>
+    
+    <div class="grid-item">
+        <img src="https://images.asos-media.com/products/asos-design-oversized-t-shirt-with-racing-car-graphic-in-washed-cream/205436418-1-cream/?$n_480w$&wid=476&fit=constrain" alt="Image 3">
+        <h3>Hats</h3>
+    </div>
+    <div class="grid-item"><img src="https://media.4rgos.it/s/Argos/tuc140150182_R_SET?$Main768$&w=620&h=620" alt="Image 1"></div>
+    <div class="grid-item"><img src="https://www.pjpan.co.uk/media/catalog/product/cache/ddc9bd1b85fcfa71e5e91929f8504b46/m/e/mens-blue-organic-tshirt_1.jpg" alt="Image 2"></div>
+
+    <div class="grid-item"><img src="https://www.pjpan.co.uk/media/catalog/product/cache/ddc9bd1b85fcfa71e5e91929f8504b46/m/e/mens-blue-organic-tshirt_1.jpg" alt="Image 2"></div>
+    <div class="grid-item"><img src="https://images.asos-media.com/products/asos-design-oversized-t-shirt-with-racing-car-graphic-in-washed-cream/205436418-1-cream/?$n_480w$&wid=476&fit=constrain" alt="Image 3"></div>
+    <div class="grid-item"><img src="https://media.4rgos.it/s/Argos/tuc140150182_R_SET?$Main768$&w=620&h=620" alt="Image 1"></div>
+
+</div>
+<button class="infinite-scroll centered-element">View More</button>
+
+
+{% endblock content %}

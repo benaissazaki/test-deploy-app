@@ -1,0 +1,95 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block title %}
+    <title>Admin Dashboard</title>
+{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/dashboard.css" %}">
+{% endblock styles %}
+{% block content %}
+<div class="page-path">
+    <h4><img class="admin" src="/static/icons/admin.svg" alt="Search Icon" width="15" height="15">Admin Dashboard</h4>
+</div>
+<h1 class="centered-element">
+    Content Management
+    <img class="management" src="/static/icons/management.svg" alt="Search Icon" width="30" height="30">
+</h1>
+<div class="actions-grid">  
+    <div path="/products/create-top-category/" class="container">
+        <h2>Create Categories</h2>
+        <p>Create new categories and sub-categories for your products.</p>
+    </div>
+    <div path="/products/upload-content/" class="container">
+        <h2>Upload New Products</h2>
+        <p>Put new products on sale.</p>
+    </div>
+    <div path="/products/upload-content/" class="container">
+        <h2>Confirm Sales</h2>
+        <p>Confirm the quantity sold of a certain product to update the stock.</p>
+    </div>
+    <div id="edit-product" class="container">
+        <h2>Edit Products</h2>
+        <p>Modify existing products details eg. name, description, image...</p>
+    </div>
+</div>
+<h1 class="centered-element">
+    Products On sale    
+    <img class="sale" src="/static/icons/sale.svg" alt="Search Icon" width="30" height="30">
+</h1>
+    
+<div class="align-to-action-grid">
+    <h2>* Clothing</h2>
+</div>
+    <div class="actions-grid">  
+        <div class="container">
+            <h2>Dresses</h2>
+            <p>Create new categories and sub-categories for your products.</p>
+        </div>
+        <div class="container">
+            <h2>Tops</h2>
+            <p>Put new products on sale.</p>
+        </div>
+        <div class="container">
+            <h2>Trousers</h2>
+            <p>Confirm the quantity sold of a certain product to update the stock.</p>
+        </div>
+        <div class="container">
+            <h2>Jackets</h2>
+            <p>Modify existing products details eg. name, description, image...</p>
+        </div>
+    </div>
+    <hr>
+    <div class="align-to-action-grid">
+        <h2>* Garniture</h2>
+    </div>
+    <div class="actions-grid">  
+        <div class="container">
+            <h2>Vases</h2>
+            <p>Create new categories and sub-categories for your products.</p>
+        </div>
+        <div class="container">
+            <h2>Blankets</h2>
+            <p>Put new products on sale.</p>
+        </div>
+        <div class="container">
+            <h2>Table cloth</h2>
+            <p>Confirm the quantity sold of a certain product to update the stock.</p>
+        </div>
+        <div class="container">
+            <h2>Bed sheets</h2>
+            <p>Modify existing products details eg. name, description, image...</p>
+        </div>
+    </div>
+    <script>
+        const tiles = document.querySelectorAll('.container');
+        let path;
+        tiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                window.location.href = tile.getAttribute('path');
+            })
+        })
+    </script>
+
+
+{% endblock content %}
+  

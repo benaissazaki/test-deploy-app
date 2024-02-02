@@ -1,0 +1,62 @@
+.product-suggestions {
+    color: #555;
+    padding: 10px;
+    /* background-color: #f0efef; */
+}
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item-container {
+    width: 500px;
+    height: 500px;
+    margin-right: 20px;
+}
+.carousel img {
+    width: 350px;
+    height: 350px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.prev-button,
+.next-button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    background-color: #eceaea;
+    border-radius: 50%;
+    border: 0 solid transparent;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev-button {
+    top: 25px;
+    right: 60px;
+}
+
+.next-button {
+    top: 25px;
+    right: 10px;
+}
+
+.carousel-item-details {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.carousel-item-details p {
+    margin: 0px;
+}
